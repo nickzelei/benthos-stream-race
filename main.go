@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"strings"
 
 	_ "github.com/warpstreamlabs/bento/public/components/io"
 	"github.com/warpstreamlabs/bento/public/service"
@@ -35,10 +34,10 @@ output:
 func main() {
 	errgrp := errgroup.Group{}
 	errgrp.Go(func() error {
-		return sync(strings.TrimSpace(syncConfig))
+		return sync(syncConfig)
 	})
 	errgrp.Go(func() error {
-		return sync(strings.TrimSpace(syncConfig))
+		return sync(syncConfig)
 	})
 	err := errgrp.Wait()
 	if err != nil {
